@@ -1,4 +1,4 @@
-ubuntu@ip-10-0-2-186:~$ cat playbook.yml
+ubuntu@ip-10-0-2-175:~$ cat playbook.yml
 ---
 - hosts: all
   become: true

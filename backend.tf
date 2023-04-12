@@ -1,6 +1,6 @@
 terraform {
     backend "s3" {
-    bucket = "terraformtest011"
+    bucket = "Punitafps3"
     encrypt = true
     key = "state.tfstate"
     region = "us-east-1"

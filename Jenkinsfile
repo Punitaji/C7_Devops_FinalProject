@@ -17,8 +17,8 @@ pipeline {
           steps {
             sh '''
             aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 412064873312.dkr.ecr.us-east-1.amazonaws.com
-            sudo docker build . -t 412064873312.dkr.ecr.us-east-1.amazonaws.com/course-assignment-c7:v${BUILD_NUMBER}
-            sudo docker push 412064873312.dkr.ecr.us-east-1.amazonaws.com/course-assignment-c7:v${BUILD_NUMBER}
+            sudo docker build . -t 412064873312.dkr.ecr.us-east-1.amazonaws.com/Punitacourseassignment-c7:v${BUILD_NUMBER}
+            sudo docker push 412064873312.dkr.ecr.us-east-1.amazonaws.com/Punitacourseassignment-c7:v${BUILD_NUMBER}
             '''
           }
         }
@@ -30,7 +30,7 @@ stage('Deploy in app host') {
         script {
           sh'''
 echo "Starting to deploy app image.."
-ECR_IMAGE="412064873312.dkr.ecr.us-east-1.amazonaws.com/course-assignment-c7:v${BUILD_NUMBER}"
+ECR_IMAGE="412064873312.dkr.ecr.us-east-1.amazonaws.com/Punitacourseassignment-c7:v${BUILD_NUMBER}"
 sudo docker pull $ECR_IMAGE
 sudo docker ps -q --filter ancestor=$ECR_IMAGE | xargs -r sudo docker stop
 sudo docker run -d -p 8080:8080 $ECR_IMAGE'''
